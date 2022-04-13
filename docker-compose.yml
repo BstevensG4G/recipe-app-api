@@ -2,6 +2,14 @@ version: "3"
 
 services:
   app:
+    environment:
+      - DB_HOST=db
+      - DB_NAME=app
+      - DB_USER=postgres
+      - DB_PASS=supersecretpassword
+      - DJANGO_SUPERUSER=dwadmin
+      - DJANGO_SUPER_EMAIL=dwadmin@developwright
+      - DJANGO_SUPER_PASSWORD=P@ssw0rd4Dev
     build:
       context: .
     ports:
@@ -9,5 +17,16 @@ services:
     volumes:
       - ./app:/app
     command: >
-      sh -c "python manage.py runserver 0.0.0.0:8000"
-      
+      sh -c "python manage.py wait_for_db &&
+            python manage.py migrate &&
+            python manage.py runserver 0.0.0.0:8000"
+      sh -c "python manage.py createsuperuser --noinput --username $DJANGO_SUPERUSER --email $DJANGO_SUPER_EMAIL --password $DJANGO_SUPER_PASS"
+    depends_on:
+      - db
+
+  db:
+    image: postgres:10-alpine
+    environment:
+      - POSTGRES_DB=app
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=supersecretpassword
