@@ -1,0 +1,14 @@
+*.pyc
+*.pyo
+*.mo
+*.db
+*.css.map
+*.egg-info
+*.sql.gz
+.cache
+.git
+.project
+.idea
+.flake8
+__pycache__
+Dockerfile
