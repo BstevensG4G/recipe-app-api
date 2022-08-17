@@ -2,8 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
-#Docker environment secrets in docker-compose.yml
-docker-compose.yml
+
 # C extensions
 *.so
 
