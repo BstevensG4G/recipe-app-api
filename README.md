@@ -1,4 +1,4 @@
 # recipe-app-api
 recipe api project
 
-checking my push origin settings
+Working through an advanced tutorial by Mark Winterbottom titled, "Build a Backend REST API with Python & Django - Advanced"
