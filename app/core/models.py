@@ -29,7 +29,7 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
 
         return user
-    
+
     def __str__(self):
         return self.user
 
