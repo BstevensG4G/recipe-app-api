@@ -29,6 +29,9 @@ class UserManager(BaseUserManager):
         user.save(using=self._db)
 
         return user
+    
+    def __str__(self):
+        return self.title
 
 
 class User(AbstractBaseUser, PermissionsMixin):
@@ -42,6 +45,8 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
 
+    def __str__(self):
+        return self.title
 
 class Recipe(models.Model):
     """Recipe object."""
