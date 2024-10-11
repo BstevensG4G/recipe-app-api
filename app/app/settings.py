@@ -134,6 +134,7 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+# Assigns our user model to be the auth user model
 AUTH_USER_MODEL = 'core.User'
 
 REST_FRAMEWORK = {
